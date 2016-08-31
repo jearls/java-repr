@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.jearls</groupId>
+  <artifactId>java-repr</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>java-repr</name>
+  <description>A Java version of Python's repr()</description>
+  <url>https://github.com/jearls/java-repr/wiki</url>
+  <scm>
+  	<url>https://github.com/jearls/java-repr</url>
+  	<connection>scm:git:http://github.com/jearls/java-repr</connection>
+  	<developerConnection>scm:git:https://github.com/jearls/java-repr</developerConnection>
+  </scm>
+  <issueManagement>
+  	<url>https://github.com/jearls/java-repr/issues</url>
+  	<system>GitHub</system>
+  </issueManagement>
+</project>
