@@ -1,10 +1,8 @@
 package com.github.jearls.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
-import java.util.Set;
-import java.util.Map.Entry;
 
 import org.junit.Test;
 
@@ -26,10 +24,11 @@ public class ReprTest {
     @Test
     public void testArrayRepresentations() {
         String[] arrayOfString = new String[] { "this", "is", "a", "test" };
-        assertEquals("String[]{\"this\",\"is\",\"a\",\"test\"}", Repr.repr(arrayOfString));
+        System.err.println(Repr.repr(arrayOfString));
+        assertEquals("String@" + Integer.toHexString(arrayOfString.hashCode()) + "[]{\"this\",\"is\",\"a\",\"test\"}", Repr.repr(arrayOfString));
         Date[] arrayOfDate = new Date[] { new Date() };
         String dateString = arrayOfDate[0].toString();
-        assertEquals("java.util.Date[]{" + dateString + "}", Repr.repr(arrayOfDate));
+        assertEquals("java.util.Date@" + Integer.toHexString(arrayOfDate.hashCode()) + "[]{" + dateString + "}", Repr.repr(arrayOfDate));
     }
 
     private class TestObject implements Representable {
@@ -55,6 +54,7 @@ public class ReprTest {
             sValue = value;
         }
 
+        @SuppressWarnings("unused")
         public LinkedList insertBefore(LinkedList other) {
             this.mPrevious = other.mPrevious;
             this.mNext = other;
@@ -97,10 +97,10 @@ public class ReprTest {
     @Test
     public void testRecursivelyRepresentableRepresentation() {
         LinkedList list = new LinkedList(new TestObject("foo", 2));
-        assertEquals("LinkedList(TestObject(\"foo\",2),null,null)", Repr.repr(list));
+        assertEquals("LinkedList@" + Integer.toHexString(list.hashCode()) + "(TestObject(\"foo\",2),null,null)", Repr.repr(list));
         list.mNext = new LinkedList(new TestObject("bar", 3)).insertAfter(list);
         System.err.println("list=" + Repr.repr(list));
-        assertEquals("LinkedList(TestObject(\"foo\",2),null,LinkedList(TestObject(\"bar\",3),"
-                + list.toString() + ",null))", Repr.repr(list));
+        assertEquals("LinkedList@" + Integer.toHexString(list.hashCode()) + "(TestObject(\"foo\",2),null," + "LinkedList@" + Integer.toHexString(list.mNext.hashCode()) + "(TestObject(\"bar\",3),"
+                + "LinkedList@" + Integer.toHexString(list.hashCode()) + ",null))", Repr.repr(list));
     }
 }

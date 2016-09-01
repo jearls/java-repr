@@ -59,7 +59,7 @@ public class RepresentableArray implements RepresentableContainer {
         } else {
             buf.append(arrayType.getName());
         }
-        buf.append("@" + Integer.toHexString(this.hashCode()));
+        buf.append("@" + Integer.toHexString(sArray.hashCode()));
         return buf.toString();
     }
 }
