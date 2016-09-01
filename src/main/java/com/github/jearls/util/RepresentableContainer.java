@@ -1,7 +1,5 @@
 package com.github.jearls.util;
 
-import java.util.Set;
-
 /**
  * <p>
  * A container object that can return a string representation of itself and its
