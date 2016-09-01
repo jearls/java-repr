@@ -24,7 +24,6 @@ public class ReprTest {
     @Test
     public void testArrayRepresentations() {
         String[] arrayOfString = new String[] { "this", "is", "a", "test" };
-        System.err.println(Repr.repr(arrayOfString));
         assertEquals("String@" + Integer.toHexString(arrayOfString.hashCode()) + "[]{\"this\",\"is\",\"a\",\"test\"}", Repr.repr(arrayOfString));
         Date[] arrayOfDate = new Date[] { new Date() };
         String dateString = arrayOfDate[0].toString();
@@ -99,7 +98,6 @@ public class ReprTest {
         LinkedList list = new LinkedList(new TestObject("foo", 2));
         assertEquals("LinkedList@" + Integer.toHexString(list.hashCode()) + "(TestObject(\"foo\",2),null,null)", Repr.repr(list));
         list.mNext = new LinkedList(new TestObject("bar", 3)).insertAfter(list);
-        System.err.println("list=" + Repr.repr(list));
         assertEquals("LinkedList@" + Integer.toHexString(list.hashCode()) + "(TestObject(\"foo\",2),null," + "LinkedList@" + Integer.toHexString(list.mNext.hashCode()) + "(TestObject(\"bar\",3),"
                 + "LinkedList@" + Integer.toHexString(list.hashCode()) + ",null))", Repr.repr(list));
     }
