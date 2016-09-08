@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.jearls</groupId>
   <artifactId>java-repr</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0</version>
   <name>java-repr</name>
   <description>A Java version of Python's repr()</description>
   <url>https://github.com/jearls/java-repr/wiki</url>
@@ -15,4 +15,12 @@
   	<url>https://github.com/jearls/java-repr/issues</url>
   	<system>GitHub</system>
   </issueManagement>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
 </project>
